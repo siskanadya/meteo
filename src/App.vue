@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { fetchMeteo } from "./services/meteo.js";
 import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 const villes = [
   { code: "bordeaux", nom: "Bordeaux" },
@@ -70,4 +71,7 @@ async function chargerMeteo() {
       </div>
     </div>
   </div>
+
+
+  <Footer />
 </template>
