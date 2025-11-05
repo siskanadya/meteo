@@ -17,8 +17,6 @@ import Logo from '@/assets/logo_atmos.svg'
   background: #16131e;
   color: white;
   padding: 1.5rem;
-  position: relative;
-   z-index: 10000; 
 }
 
 .logo {
