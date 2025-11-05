@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { fetchMeteo } from "./services/meteo.js";
+import Header from "./components/Header.vue";
 
 const villes = [
   { code: "bordeaux", nom: "Bordeaux" },
@@ -30,6 +31,8 @@ async function chargerMeteo() {
 </script>
 
 <template>
+   <Header />
+  <router-view />
   <div class="container py-4">
     <h1 class="text-center mb-4">🌦️ Météo — Gironde</h1>
 
