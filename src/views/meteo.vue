@@ -160,7 +160,7 @@ select {
   .cards-container {
     flex-direction: column;
     align-items: center;
-    gap: 4rem;         
+    gap: 3rem;         
   }
   h1 {
     font-size: 32px!important;
@@ -191,7 +191,5 @@ select {
   border-top: 10px solid #ffffff;
 }
 }
-
-
 
 </style>
