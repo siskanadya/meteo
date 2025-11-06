@@ -7,7 +7,6 @@
     <nav class="footer__nav">
       <div class="menu-static-pages">
         <a href="/a-propos">À propos</a>
-        <a href="/contact">Contact</a>
         <a href="/mentions-legales">Mentions légales</a>
       </div>
 
@@ -49,7 +48,7 @@
 }
 
 .menu-static-pages a:hover {
-  color: #EFFF76;
+ 
   transform: scale(1.1);
 }
 
@@ -70,8 +69,7 @@
 }
 
 .sm-link:hover {
-  color: #EFFF76;
-  /* couleur au survol */
+
   transform: scale(1.1);
 }
 </style>
