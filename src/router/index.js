@@ -11,7 +11,6 @@ const routes = [
   { path: "/ville/:code", name: "ville-compat", component: Meteo },
 
   // optional: catch-all to home
-  { path: "/:pathMatch(.*)*", redirect: "/" },
   { path: "/:pathMatch(.*)*", name: "NotFound", component: () => import("@/views/NotFound.vue") },
 ];
 

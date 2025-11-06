@@ -4,4 +4,11 @@ body {
   background: linear-gradient(to bottom, #181534, #745a87);
   background-attachment: fixed;
 }
+#app {
+  display: flex;
+  flex-direction: column;
+}
+main, .router-view-wrapper {
+  flex: 1;
+}
 

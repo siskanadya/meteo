@@ -8,7 +8,9 @@ import Footer from "@/components/Footer.vue";
 
 <template>
   <Header />
-  <router-view />
+ <main class="router-view-wrapper">
+    <router-view />
+  </main>
 
   <!-- Keep dust under the header; give header a higher z-index if needed -->
   <StaticStars
@@ -23,3 +25,4 @@ import Footer from "@/components/Footer.vue";
 
   <Footer />
 </template>
+
