@@ -1,6 +1,5 @@
 <script setup>
-import facebookIcon from "@/assets/Facebook.webp";
-import instagramIcon from "@/assets/Instagram.webp";
+
 </script>
 
 <template>
