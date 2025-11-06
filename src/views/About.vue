@@ -38,7 +38,7 @@ main {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  color: #a33e3e;
+  color: #ddd3d3;
 }
 
 
@@ -47,17 +47,18 @@ h1 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: 600;
-  color: #f33737;
+  color: #f0ebeb;
   letter-spacing: 0.5px;
 }
 
 p {
-  max-width: 800px;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #e76868;
+  max-width: 750px;
+  margin: 0 auto;           /* centre horizontalement le bloc */
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #e6e0e0;
 }
+
 
 
 </style>
