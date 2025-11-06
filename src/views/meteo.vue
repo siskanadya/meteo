@@ -44,7 +44,10 @@ watch(ville, () => {
 </script>
 <template>
   <div class="container">
-    <h1>Météo Gironde</h1>
+     <div class="title-container">
+     <img src="/carte.svg" alt="Icône météo" class="title-icon" />
+     <h1>Météo Gironde</h1>
+  </div>
 
     <form @submit.prevent>
       <label>Choisissez votre ville</label>
@@ -80,9 +83,21 @@ watch(ville, () => {
   gap: 4rem;
   margin-top: 2rem;
 }
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 2rem; 
+  margin-bottom: 2rem;
+}
+
+.title-icon {
+  width: 100px;
+  height: 100px;
+}
+
 h1{
   font-size: 48px!important;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: #ffffff!important;
 }
@@ -105,7 +120,6 @@ form {
 .select-container {
   position: relative;
   width: 450px;
-  
   margin-bottom: 1.5rem;
 }
 
@@ -139,6 +153,45 @@ select {
   border-top: 15px solid #ffffff;
   pointer-events: none;
 }
+@media (max-width: 1024px) {
+  .container {
+    margin-top: 2rem;
+  }
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;         
+  }
+  h1 {
+    font-size: 32px!important;
+  }
+  .title-container {
+  flex-direction: column;
+  gap: 1rem; 
+  margin-bottom: 1rem;
+  }
+  .title-icon {
+  width: 70px;
+  height: 70px;
+}
+label {
+  font-size: 20px;
+  color: #ffffff;
+}
+.select-container {
+  width: 300px;
+  margin-bottom: 1rem;
+}
+select {
+  font-size: 1.5rem!important;
+}
+.select-container::after {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ffffff;
+}
+}
+
 
 
 </style>

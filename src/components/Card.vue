@@ -30,7 +30,7 @@ const props = defineProps<{
 
       <div class="climat">
         <p>
-          <img :src="j.icon" :alt="j.condition" width="64" height="64" />
+          <img :src="j.icon" :alt="j.condition" class="weather-icon" />
         </p>
         <p>{{ j.condition }}</p>
       </div>
@@ -69,4 +69,32 @@ const props = defineProps<{
 .temperature {
   font-size: 2.5rem;
 }
+
+.weather-icon {
+   width: 64px;
+   height: 64px;
+}
+
+@media (max-width: 530px) {
+  .card {
+    width: 300px;
+    height: 180px;
+    padding: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .temperature {
+    font-size: 1.5rem;
+  }
+.temperatures,
+.climat {
+  gap: 0.2rem;
+}
+ .weather-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
 </style>
