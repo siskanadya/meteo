@@ -72,4 +72,17 @@
 
   transform: scale(1.1);
 }
+@media (max-width: 530px) {
+  .footer__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-static-pages {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap:1.5rem;
+}
+}
 </style>
