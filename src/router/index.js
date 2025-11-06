@@ -1,6 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from "vue-router";
 import Meteo from "@/views/meteo.vue";
+import About from "../views/About.vue";
 import LegalNotices from "@/views/LegalNotices.vue";
 
 const routes = [
@@ -9,6 +10,8 @@ const routes = [
 
   // 👇 compat so /ville/bordeaux still shows Meteo
   { path: "/ville/:code", name: "ville-compat", component: Meteo },
+
+   { path: "/a-propos", name: "a-propos", component: About },
 
   // optional: catch-all to home
   { path: "/:pathMatch(.*)*", name: "NotFound", component: () => import("@/views/NotFound.vue") },
