@@ -12,6 +12,7 @@ const routes = [
 
   // optional: catch-all to home
   { path: "/:pathMatch(.*)*", redirect: "/" },
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: () => import("@/views/NotFound.vue") },
 ];
 
 export default createRouter({ history: createWebHistory(), routes });
