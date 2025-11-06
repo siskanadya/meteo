@@ -82,7 +82,6 @@ watch(ville, () => {
 }
 h1{
   font-size: 48px!important;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: #ffffff!important;
 }
