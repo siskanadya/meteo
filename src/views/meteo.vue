@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { fetchMeteo } from "@/services/meteo.js";
+import Card from "@/components/card.vue";
 
 const villes = [
   { code: "bordeaux", nom: "Bordeaux" },
@@ -31,27 +32,26 @@ async function chargerMeteo() {
   }
 }
 
+/* Charge automatiquement Bordeaux au montage */
 onMounted(chargerMeteo);
+
+/* Recharge dès que la ville change */
+watch(ville, () => {
+  chargerMeteo();
+});
+
+
 </script>
-
 <template>
-  <div class="container py-4">
-    <h1 class="text-center mb-4">🌦️ Météo — Gironde</h1>
+  <div class="container">
+    <h1>Météo Gironde</h1>
 
-    <form class="d-flex flex-column align-items-center gap-2" @submit.prevent>
-      <label for="ville" class="form-label">Choisir une ville :</label>
-      <div class="d-flex gap-2">
-        <select id="ville" v-model="ville" class="form-select w-auto">
+    <form @submit.prevent>
+      <label>Choisissez votre ville</label>
+      <div class="select-container">
+        <select id="ville" v-model="ville">
           <option v-for="v in villes" :key="v.code" :value="v.code">{{ v.nom }}</option>
         </select>
-        <button
-          type="button"
-          class="btn btn-primary"
-          :disabled="loading"
-          @click="chargerMeteo"
-        >
-          {{ loading ? "Chargement..." : "Charger" }}
-        </button>
       </div>
     </form>
 
@@ -59,28 +59,86 @@ onMounted(chargerMeteo);
       <div v-if="loading" class="alert alert-secondary">Chargement...</div>
       <div v-else-if="error" class="alert alert-danger">Erreur : {{ error }}</div>
 
-      <div v-else-if="meteo && Array.isArray(meteo.days) && meteo.days.length">
-        <div class="text-center mb-3">
-          <h2>{{ meteo.city }}</h2>
-          <p>{{ meteo.current.condition }} — {{ meteo.current.tmp }}°C</p>
-          <img :src="meteo.current.icon" alt="Météo actuelle" width="64" height="64" />
+      <section v-else-if="meteo?.days?.length" class="cards-container">
+        <div v-for="(j, index) in meteo.days.slice(0, 3)" :key="j.day_long">
+          <Card
+            :j="j"
+            :index="index"
+            :current="index === 0 ? meteo.current.tmp : null"
+          />
         </div>
-
-        <section class="row g-3">
-          <div v-for="j in meteo.days" :key="j.day_long" class="col-12 col-md-4">
-            <div class="card p-3 text-center">
-              <h5 class="mb-2">{{ j.day_long }}</h5>
-              <img :src="j.icon" :alt="j.condition" width="64" height="64" />
-              <p class="mb-1">{{ j.tmin }}°C / {{ j.tmax }}°C</p>
-              <p class="text-muted mb-0">{{ j.condition }}</p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div v-else-if="meteo" class="alert alert-warning">
-        Aucune prévision trouvée pour {{ ville }}.
-      </div>
+      </section>
     </div>
   </div>
 </template>
+
+<style>
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+h1{
+  font-size: 48px!important;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #ffffff!important;
+}
+
+label {
+  font-size: 24px;
+  color: #ffffff;
+}
+.container {
+  margin-top: 4rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.select-container {
+  position: relative;
+  width: 450px;
+  
+  margin-bottom: 1.5rem;
+}
+
+/* Cache la flèche native */
+select {
+  width: 100%;
+  font-size: 2rem !important;
+  padding: 1rem 1rem 1rem 1rem; /* espace pour la flèche custom */
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Flèche identique à celle native, mais plus grande */
+.select-container::after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff;
+  pointer-events: none;
+}
+
+
+</style>
