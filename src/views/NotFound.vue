@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <h1>Navigation interstellaire impossible : page introuvable 🚀</h1>
+    <h1>Navigation interstellaire impossible : page introuvable</h1>
     <!-- mets ici ton PNG astronaute transparent -->
     <img src="@/assets/astronaut.png" alt="404 astronaut" class="astro" />
 
