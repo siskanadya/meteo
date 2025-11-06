@@ -43,14 +43,15 @@ import instagramIcon from "@/assets/Instagram.webp";
 }
 
 .menu-static-pages a {
-  color: pink;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 1.125rem;
   transition: color 0.2s ease;
 }
 
 .menu-static-pages a:hover {
-  color: #745A87;
+  color: #EFFF76;
+  transform: scale(1.1);
 }
 
 /* icônes */
@@ -61,14 +62,17 @@ import instagramIcon from "@/assets/Instagram.webp";
 }
 
 .sm-link {
-  color: pink; /* couleur initiale */
-  font-size: 1.6rem; /* taille des icônes */
+  color: rgb(255, 255, 255);
+  /* couleur initiale */
+  font-size: 1.6rem;
+  /* taille des icônes */
   transition: color 0.3s ease, transform 0.3s ease;
+
 }
 
 .sm-link:hover {
-  color: #745A87; /* couleur au survol */
+  color: #EFFF76;
+  /* couleur au survol */
   transform: scale(1.1);
 }
 </style>
-

@@ -4,10 +4,12 @@ import Logo from '@/assets/logo_atmos.svg'
 
 <template>
   <header class="header">
-    <Logo class="logo" />
+    <RouterLink to="/" aria-label="Go to home" class="logo-link">
+      <Logo class="logo" />
+    </RouterLink>
 
     <nav>
-      <!-- your menu here -->
+      <!-- menu -->
     </nav>
   </header>
 </template>
@@ -18,11 +20,15 @@ import Logo from '@/assets/logo_atmos.svg'
   color: white;
   padding: 1.5rem;
   position: relative;
-   z-index: 10000; 
+  z-index: 10000;
 }
 
 .logo {
   width: 100px;
-  fill: white;  
+  fill: white;
+  transition: 0.2s;
+}
+.logo:hover {
+  fill: #EFFF76;
 }
 </style>

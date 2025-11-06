@@ -1,6 +1,8 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import StaticStars from "@/components/StaticStars.vue";
+import Footer from "@/components/Footer.vue";
+
 
 </script>
 
@@ -18,4 +20,6 @@ import StaticStars from "@/components/StaticStars.vue";
     :z-index="1"
     :colors="[[255,255,255],[210,220,255],[255,250,210]]"
   />
+
+  <Footer />
 </template>
