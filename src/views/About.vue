@@ -1,0 +1,64 @@
+<script setup>
+
+
+</script>
+
+
+<template>
+
+
+<main>
+    <h1>À propos</h1>
+
+    <p>Bienvenue sur Atmos, une application météo moderne pensée pour afficher les conditions climatiques de manière claire, rapide et agréable.
+Ce projet a été réalisé dans le cadre de la formation Développeur Web & Web Mobile (AFPA Bègles).</p>
+
+<br>
+
+<p>L’objectif : apprendre à manipuler les API météo, le DOM JavaScript, et créer une interface responsive avec HTML, CSS et JavaScript (ou un framework comme Vue.js).
+Atmos permet d’afficher la météo actuelle et les prévisions selon la ville choisie. Le design est minimaliste et met en avant la lisibilité, avec des icônes et couleurs adaptées aux conditions du moment.</p>
+
+<br>
+
+<p>
+
+Ce site n’a aucune vocation commerciale. Il s’agit d’un projet d’apprentissage, conçu pour expérimenter le développement front-end, la gestion des données en temps réel et la présentation dynamique des informations.</p>
+
+
+</main>
+
+    </template>
+
+    <style scoped>
+
+main {
+ display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: #a33e3e;
+}
+
+
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f33737;
+  letter-spacing: 0.5px;
+}
+
+p {
+  max-width: 800px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #e76868;
+}
+
+
+</style>
+
