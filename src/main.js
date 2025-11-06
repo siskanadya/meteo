@@ -7,10 +7,4 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap";
 import "./main.css";
 
-<<<<<<< HEAD
 createApp(App).use(router).mount("#app");
-=======
-import router from "./router"; // ✅ on importe le router
-
-createApp(App).use(router).mount("#app");
->>>>>>> origin/roxana

@@ -1,14 +1,13 @@
 <script setup>
-import { ref } from "vue";
-import { fetchMeteo } from "../services/meteo.js";
-
+import { ref, onMounted } from "vue";
+import { fetchMeteo } from "@/services/meteo.js";
 
 const villes = [
   { code: "bordeaux", nom: "Bordeaux" },
   { code: "arcachon", nom: "Arcachon" },
   { code: "libourne", nom: "Libourne" },
   { code: "blaye", nom: "Blaye" },
-  { code: "langon", nom: "Langon" }
+  { code: "langon", nom: "Langon" },
 ];
 
 const ville = ref("bordeaux");
@@ -21,18 +20,21 @@ async function chargerMeteo() {
   loading.value = true;
   meteo.value = null;
   try {
-    meteo.value = await fetchMeteo(ville.value);
+    const data = await fetchMeteo(ville.value);
+    meteo.value = data;
+    // quick sanity check in console
+    console.log("meteo loaded:", data);
   } catch (e) {
-    error.value = e.message;
+    error.value = e?.message ?? "Erreur inconnue";
   } finally {
     loading.value = false;
   }
 }
+
+onMounted(chargerMeteo);
 </script>
 
 <template>
-  
-  <router-view />
   <div class="container py-4">
     <h1 class="text-center mb-4">🌦️ Météo — Gironde</h1>
 
@@ -42,7 +44,14 @@ async function chargerMeteo() {
         <select id="ville" v-model="ville" class="form-select w-auto">
           <option v-for="v in villes" :key="v.code" :value="v.code">{{ v.nom }}</option>
         </select>
-        <button type="button" class="btn btn-primary" @click="chargerMeteo">Charger</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          :disabled="loading"
+          @click="chargerMeteo"
+        >
+          {{ loading ? "Chargement..." : "Charger" }}
+        </button>
       </div>
     </form>
 
@@ -50,27 +59,28 @@ async function chargerMeteo() {
       <div v-if="loading" class="alert alert-secondary">Chargement...</div>
       <div v-else-if="error" class="alert alert-danger">Erreur : {{ error }}</div>
 
-      <div v-else-if="meteo">
+      <div v-else-if="meteo && Array.isArray(meteo.days) && meteo.days.length">
         <div class="text-center mb-3">
           <h2>{{ meteo.city }}</h2>
           <p>{{ meteo.current.condition }} — {{ meteo.current.tmp }}°C</p>
-          <img :src="meteo.current.icon" alt="meteo actuelle" width="64" height="64" />
+          <img :src="meteo.current.icon" alt="Météo actuelle" width="64" height="64" />
         </div>
 
         <section class="row g-3">
           <div v-for="j in meteo.days" :key="j.day_long" class="col-12 col-md-4">
             <div class="card p-3 text-center">
-              <h5>{{ j.day_long }}</h5>
+              <h5 class="mb-2">{{ j.day_long }}</h5>
               <img :src="j.icon" :alt="j.condition" width="64" height="64" />
-              <p>{{ j.tmin }}°C / {{ j.tmax }}°C</p>
-              <p class="text-muted">{{ j.condition }}</p>
+              <p class="mb-1">{{ j.tmin }}°C / {{ j.tmax }}°C</p>
+              <p class="text-muted mb-0">{{ j.condition }}</p>
             </div>
           </div>
         </section>
       </div>
+
+      <div v-else-if="meteo" class="alert alert-warning">
+        Aucune prévision trouvée pour {{ ville }}.
+      </div>
     </div>
   </div>
-
-
- 
 </template>
