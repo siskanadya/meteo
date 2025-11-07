@@ -29,6 +29,6 @@ import Logo from '@/assets/logo_atmos.svg'
   transition: 0.2s;
 }
 .logo:hover {
-  fill: #EFFF76;
+   transform: scale(1.1);
 }
 </style>

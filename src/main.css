@@ -1,14 +1,24 @@
-/* Full page + gradient */
-html, body, #app { height: 100%; margin: 0; padding: 0; }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: linear-gradient(to bottom, #181534, #745a87);
   background-attachment: fixed;
+  font-family: 'Inter', sans-serif;  
 }
+
 #app {
   display: flex;
   flex-direction: column;
 }
+
 main, .router-view-wrapper {
   flex: 1;
 }
-

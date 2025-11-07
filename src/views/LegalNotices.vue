@@ -6,7 +6,10 @@
  
 
   <main class="legal-container">
+    <h1>Mentions légales</h1>
     <section>
+
+
       <h2>1. Éditeur du site</h2>
       <p>
         Nom du site : <strong>Atmos</strong><br />
@@ -100,31 +103,66 @@
 </template>
 
 <style scoped>
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2rem !important;
+  font-weight: 600;
+  color: #f0ebeb;
+  letter-spacing: 0.5px;
+  text-align: center; /* plus harmonieux */
+}
+
 .legal-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: flex-start; 
+  align-items: flex-start;
+  justify-content: flex-start;  /* important : ne pas centrer verticalement */
   padding: 3rem 2rem;
-  color: #b15050;
+  color: #ece8e8;
+  max-width: 900px;             /* largeur agréable pour lecture */
+  margin: 0 auto 4rem auto;     /* centré horizontalement, espace avant footer */
+  line-height: 1.7;
 }
 
-
+/* Espacement entre les sections */
 section {
   margin-bottom: 2.5rem;
-  max-width: 800px;
 }
 
+/* Titres secondaires */
 h2 {
   font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #b44b9a;
+  margin-bottom: 0.75rem;
+  color: #e9e3e7;
+  font-weight: 600;
 }
 
+/* Paragraphes */
 p {
   line-height: 1.6;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #e6e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 2rem 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
 }
 </style>
-
-    
