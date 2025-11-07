@@ -44,10 +44,10 @@ watch(ville, () => {
 </script>
 <template>
   <div class="container">
-     <div class="title-container">
-     <img src="/carte.svg" alt="Icône météo" class="title-icon" />
-     <h1>Météo Gironde</h1>
-  </div>
+    <div class="title-container">
+      <img src="/carte.svg" alt="Icône météo" class="title-icon" />
+      <h1>Météo Gironde</h1>
+    </div>
 
     <form @submit.prevent>
       <label>Choisissez votre ville</label>
@@ -64,11 +64,7 @@ watch(ville, () => {
 
       <section v-else-if="meteo?.days?.length" class="cards-container">
         <div v-for="(j, index) in meteo.days.slice(0, 3)" :key="j.day_long">
-          <Card
-            :j="j"
-            :index="index"
-            :current="index === 0 ? meteo.current.tmp : null"
-          />
+          <Card :j="j" :index="index" :current="index === 0 ? meteo.current.tmp : null" />
         </div>
       </section>
     </div>
@@ -76,18 +72,18 @@ watch(ville, () => {
 </template>
 
 <style>
-
 .cards-container {
   display: flex;
   justify-content: center;
   gap: 4rem;
   margin-top: 2rem;
 }
+
 .title-container {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  gap: 2rem; 
+  justify-content: center;
+  gap: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -96,19 +92,21 @@ watch(ville, () => {
   height: 100px;
 }
 
-h1{
-  font-size: 48px!important;
+h1 {
+  font-size: 48px !important;
   text-align: center;
-  color: #ffffff!important;
+  color: #ffffff !important;
 }
 
 label {
   font-size: 24px;
   color: #ffffff;
 }
+
 .container {
   margin-top: 4rem;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -127,7 +125,8 @@ form {
 select {
   width: 100%;
   font-size: 2rem !important;
-  padding: 1rem 1rem 1rem 1rem; /* espace pour la flèche custom */
+  padding: 1rem 1rem 1rem 1rem;
+  /* espace pour la flèche custom */
   text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -153,43 +152,59 @@ select {
   border-top: 15px solid #ffffff;
   pointer-events: none;
 }
-@media (max-width: 1024px) {
-  .container {
-    margin-top: 2rem;
-  }
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;         
-  }
-  h1 {
-    font-size: 32px!important;
-  }
-  .title-container {
-  flex-direction: column;
-  gap: 1rem; 
-  margin-bottom: 1rem;
-  }
-  .title-icon {
-  width: 70px;
-  height: 70px;
-}
-label {
-  font-size: 20px;
-  color: #ffffff;
-}
-.select-container {
-  width: 300px;
-  margin-bottom: 1rem;
-}
-select {
-  font-size: 1.5rem!important;
-}
-.select-container::after {
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #ffffff;
-}
-}
 
+@media (max-width: 1510px) {
+  .cards-container {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      margin-top: 2rem;
+    }
+
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+
+    }
+
+    h1 {
+      font-size: 32px !important;
+    }
+
+    .title-container {
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .title-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    label {
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .select-container {
+      width: 300px;
+      margin-bottom: 1rem;
+    }
+
+    select {
+      font-size: 1.5rem !important;
+    }
+
+    .select-container::after {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ffffff;
+    }
+  }
+
+}
 </style>
