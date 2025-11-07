@@ -43,6 +43,7 @@ watch(ville, () => {
 
 </script>
 <template>
+  <main>
   <div class="container">
     <div class="title-container">
       <img src="/carte.svg" alt="Icône météo" class="title-icon" />
@@ -69,6 +70,7 @@ watch(ville, () => {
       </section>
     </div>
   </div>
+  </main>
 </template>
 
 <style>
