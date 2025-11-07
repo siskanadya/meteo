@@ -32,14 +32,11 @@ async function chargerMeteo() {
   }
 }
 
-/* Charge automatiquement Bordeaux au montage */
 onMounted(chargerMeteo);
 
-/* Recharge dès que la ville change */
 watch(ville, () => {
   chargerMeteo();
 });
-
 
 </script>
 <template>
@@ -128,7 +125,6 @@ select {
   width: 100%;
   font-size: 2rem !important;
   padding: 1rem 1rem 1rem 1rem;
-  /* espace pour la flèche custom */
   text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -154,6 +150,10 @@ select {
   border-top: 15px solid #ffffff;
   pointer-events: none;
 }
+select option {
+  background-color: #181534;
+}
+
 
 @media (max-width: 1510px) {
   .cards-container {

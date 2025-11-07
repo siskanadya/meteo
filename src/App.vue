@@ -12,7 +12,6 @@ import Footer from "@/components/Footer.vue";
     <router-view />
   </main>
 
-  <!-- Keep dust under the header; give header a higher z-index if needed -->
   <StaticStars
     :count="800"
     :r-min="0.8"
