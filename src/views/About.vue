@@ -55,7 +55,7 @@ p {
   max-width: 750px;
   margin: 0 auto;           /* centre horizontalement le bloc */
   line-height: 1.7;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #e6e0e0;
 }
 
