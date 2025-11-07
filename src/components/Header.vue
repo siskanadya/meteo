@@ -18,13 +18,13 @@ import Logo from '@/assets/logo_atmos.svg'
 .header {
   background: #16131e;
   color: white;
-  padding: 1.5rem;
+  padding: 2rem;
   position: relative;
   z-index: 10000;
 }
 
 .logo {
-  width: 100px;
+  width: 110px;
   fill: white;
   transition: 0.2s;
 }
