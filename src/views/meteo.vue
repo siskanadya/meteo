@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import { fetchMeteo } from "@/services/meteo.js";
-import Card from "@/components/card.vue";
+import Card from "@/components/Card.vue";
 
 const villes = [
   { code: "bordeaux", nom: "Bordeaux" },
