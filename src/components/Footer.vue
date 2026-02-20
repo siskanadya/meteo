@@ -6,8 +6,8 @@
   <footer class="footer">
     <nav class="footer__nav">
       <div class="menu-static-pages">
-        <a href="/a-propos">À propos</a>
-        <a href="/mentions-legales">Mentions légales</a>
+        <RouterLink to="/a-propos">À propos</RouterLink>
+        <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
       </div>
 
       <div class="menu-social-media">
