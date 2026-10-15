@@ -1,5 +1,33 @@
-# Vue 3 + Vite
+# Météo Gironde
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Application Vue 3 affichant la météo actuelle et les prévisions sur 3 jours pour plusieurs villes de Gironde (Bordeaux, Arcachon, Libourne, Blaye, Langon), à partir de l'API [prevision-meteo.ch](https://www.prevision-meteo.ch/).
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Fonctionnalités
+
+- Sélection de la ville via un menu déroulant
+- Accès direct à une ville via l'URL `/ville/:code` (ex. `/ville/arcachon`)
+- Affichage de la température actuelle et des prévisions (3 prochains jours)
+
+## Installation
+
+```sh
+npm install
+```
+
+## Développement
+
+```sh
+npm run dev
+```
+
+## Build de production
+
+```sh
+npm run build
+```
+
+## Aperçu du build
+
+```sh
+npm run preview
+```

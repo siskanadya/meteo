@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 import { fetchMeteo } from "@/services/meteo.js";
 import Card from "@/components/Card.vue";
 
@@ -11,7 +12,13 @@ const villes = [
   { code: "langon", nom: "Langon" },
 ];
 
-const ville = ref("bordeaux");
+const route = useRoute();
+
+function codeValide(code) {
+  return villes.some((v) => v.code === code);
+}
+
+const ville = ref(codeValide(route.params.code) ? route.params.code : "bordeaux");
 const meteo = ref(null);
 const loading = ref(false);
 const error = ref("");
@@ -23,8 +30,6 @@ async function chargerMeteo() {
   try {
     const data = await fetchMeteo(ville.value);
     meteo.value = data;
-    // quick sanity check in console
-    console.log("meteo loaded:", data);
   } catch (e) {
     error.value = e?.message ?? "Erreur inconnue";
   } finally {
@@ -37,6 +42,15 @@ onMounted(chargerMeteo);
 watch(ville, () => {
   chargerMeteo();
 });
+
+watch(
+  () => route.params.code,
+  (code) => {
+    if (codeValide(code)) {
+      ville.value = code;
+    }
+  }
+);
 
 </script>
 <template>
